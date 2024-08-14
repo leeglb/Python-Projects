@@ -1,0 +1,21 @@
+import tkinter as tk
+from PIL import Image, ImageTk
+
+
+lee = tk.Tk()
+lee.geometry("400x400")
+lee.config(bg='Pink')
+
+
+
+def heart():
+    pass
+
+
+happy_birthday_label = tk.Label(lee, text='Happy Birthday!', font=('Arial', 16))
+happy_birthday_label.pack(side=tk.TOP, pady=10)
+
+happy_birthday_button = tk.Button(lee, text='Press Me :)', font=('Arial', 16))
+happy_birthday_button.pack(side=tk.TOP)
+
+lee.mainloop()

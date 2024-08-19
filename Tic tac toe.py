@@ -13,7 +13,7 @@ lee.title("Tic Tac Toe")
 lee.config(bg='Blue')
 
 #constants for gui
-fonty = ('Arial', 30)
+fonty = ('Arial', 20)
 
 
 def play_game():
@@ -23,6 +23,7 @@ def play_game():
     o_label = 0 
     O_button = False 
     x_button = False
+    
 
     title_game_grame = tk.Frame(lee)
     title_game_grame.pack(side=tk.TOP, pady=5)
@@ -60,7 +61,7 @@ def play_game():
             global x_button
             global O_button
 
-            if x_button == True:
+            if x_button is True:
                 empty_tile_2.config(text='X')
 
             elif O_button == True:
@@ -146,9 +147,10 @@ def play_game():
             global x_button
             global O_button
 
-            if x_button == True and O_button != True:
+            if x_button == True:
                 empty_tile_9.config(text='X')
-            elif O_button == True and x_button != True:
+
+            elif O_button == True:
                 empty_tile_9.config(text='O')
 
     #first line
@@ -225,28 +227,21 @@ def play_game():
     
 
     def x_clicked():
+
         global x_button
-        x_button = True 
-        global x_label 
-        x_label = tk.Label(lee, text='You Have Chosen X (Player 1), Player 2 is O')
-        x_label.pack(side=tk.TOP)
-        game_frame.after(2000, hide_label)
+        x_button = True
+
+        global O_button
+        O_button = False 
 
     def o_clicked():
+
         global O_button
-        O_button = True 
-        global o_label
-        o_label = tk.Label(lee, text='You Have Chosen O (Player 1), Player 2 is X')
-        o_label.pack(side=tk.TOP)
-        game_frame.after(2000, hide_label)
+        O_button = True
 
+        global x_button 
+        x_button = False  
 
-    def hide_label():
-        global x_label
-        x_label.destroy()
-        global o_label
-        o_label.destroy()
-        
 
     choose_x_o = tk.Button(player_frame, text='X', font=fonty, command=x_clicked)
     choose_x_o.grid(row=4, column=0, columnspan=2, pady=5)
@@ -257,8 +252,26 @@ def play_game():
     choose_character = tk.Label(lee, text='Choose Your Character', font=fonty)
     choose_character.pack(side=tk.TOP)
 
+#win conditions
+#horizontal -> 1,2,3  4,5,6,  7,8,9 (vice versa)
+#vertical -> 1,4,7  2,5,8,  3,6,9 
+#diagonal -> 1,5,9  3,5,7 
+def win_condition():
+    global x_button
+    if x_button is True:
+        x_list = []
 
-    
+        a = empty_tile_1.cget('text') 
+        b = empty_tile_2.cget('text') 
+        c = empty_tile_3.cget('text')
+
+        x_list.append(a,b,c)
+        for value in x_list:
+            if value == 'X':
+                win_label = tk.Label(lee, text='You Won!', font=fonty)
+                win_label.pack(side=tk.TOP)
+
+
 
 
 

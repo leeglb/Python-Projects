@@ -288,7 +288,3 @@ play_button.pack(side=tk.TOP, pady=20)
 
 
 lee.mainloop()
-
-
-
-

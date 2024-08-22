@@ -15,6 +15,17 @@ lee.config(bg='Blue')
 #constants for gui
 fonty = ('Arial', 20)
 
+#constants for the tiles
+empty_tile_1 = 0
+empty_tile_2 = 0 
+empty_tile_3 = 0 
+empty_tile_4 = 0 
+empty_tile_5 = 0 
+empty_tile_6 = 0 
+empty_tile_7 = 0 
+empty_tile_8 = 0 
+empty_tile_9 = 0 
+
 
 def play_game():
 
@@ -158,17 +169,23 @@ def play_game():
     line_seperator_0 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_0.grid(row=0, column=0)
 
+    global empty_tile_1
+
     empty_tile_1 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_1)
     empty_tile_1.grid(row=0, column=1)
 
     line_seperator_1 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_1.grid(row=0, column=2)
 
+    global empty_tile_2
+
     empty_tile_2 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_2)
     empty_tile_2.grid(row=0, column=3)
 
     line_seperator_2 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_2.grid(row=0, column=4)
+
+    global empty_tile_3
 
     empty_tile_3 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_3)
     empty_tile_3.grid(row=0, column=5)
@@ -181,17 +198,23 @@ def play_game():
     line_seperator_4 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_4.grid(row=1, column=0)
 
+    global empty_tile_4
+
     empty_tile_4 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_4)
     empty_tile_4.grid(row=1, column=1)
 
     line_seperator_5 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_5.grid(row=1, column=2)
 
+    global empty_tile_5
+
     empty_tile_5 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_5)
     empty_tile_5.grid(row=1, column=3)
 
     line_seperator_6 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_6.grid(row=1, column=4)
+
+    global empty_tile_6
 
     empty_tile_6 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_6)
     empty_tile_6.grid(row=1, column=5)
@@ -204,17 +227,23 @@ def play_game():
     line_seperator_8 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_8.grid(row=2, column=0)
 
+    global empty_tile_7
+
     empty_tile_7 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_7)
     empty_tile_7.grid(row=2, column=1)
 
     line_seperator_9 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_9.grid(row=2, column=2)
 
+    global empty_tile_8
+
     empty_tile_8 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_8)
     empty_tile_8.grid(row=2, column=3)
 
     line_seperator_10 = tk.Label(game_frame, text=LABEL_SEPERATOR, font=fonty)
     line_seperator_10.grid(row=2, column=4)
+
+    global empty_tile_9
 
     empty_tile_9 = tk.Button(game_frame, text=EMPTY_GRID_VALUE, font=fonty, command=grid_clicked_9)
     empty_tile_9.grid(row=2, column=5)
@@ -242,7 +271,33 @@ def play_game():
         global x_button 
         x_button = False  
 
+#win conditions
+#horizontal -> 1,2,3  4,5,6,  7,8,9 (vice versa)
+#vertical -> 1,4,7  2,5,8,  3,6,9 
+#diagonal -> 1,5,9  3,5,7 
 
+    def clear():
+        global empty_tile_1
+        global empty_tile_2
+        global empty_tile_3
+        global empty_tile_4
+        global empty_tile_5
+        global empty_tile_6
+        global empty_tile_7
+        global empty_tile_8
+        global empty_tile_9
+
+        empty_tile_1.config(text=EMPTY_GRID_VALUE)
+        empty_tile_2.config(text=EMPTY_GRID_VALUE)
+        empty_tile_3.config(text=EMPTY_GRID_VALUE)
+        empty_tile_4.config(text=EMPTY_GRID_VALUE)
+        empty_tile_5.config(text=EMPTY_GRID_VALUE)
+        empty_tile_6.config(text=EMPTY_GRID_VALUE)
+        empty_tile_7.config(text=EMPTY_GRID_VALUE)
+        empty_tile_8.config(text=EMPTY_GRID_VALUE)
+        empty_tile_9.config(text=EMPTY_GRID_VALUE)
+
+    
     choose_x_o = tk.Button(player_frame, text='X', font=fonty, command=x_clicked)
     choose_x_o.grid(row=4, column=0, columnspan=2, pady=5)
 
@@ -252,28 +307,8 @@ def play_game():
     choose_character = tk.Label(lee, text='Choose Your Character', font=fonty)
     choose_character.pack(side=tk.TOP)
 
-#win conditions
-#horizontal -> 1,2,3  4,5,6,  7,8,9 (vice versa)
-#vertical -> 1,4,7  2,5,8,  3,6,9 
-#diagonal -> 1,5,9  3,5,7 
-def win_condition():
-    global x_button
-    if x_button is True:
-        x_list = []
-
-        a = empty_tile_1.cget('text') 
-        b = empty_tile_2.cget('text') 
-        c = empty_tile_3.cget('text')
-
-        x_list.append(a,b,c)
-        for value in x_list:
-            if value == 'X':
-                win_label = tk.Label(lee, text='You Won!', font=fonty)
-                win_label.pack(side=tk.TOP)
-
-
-
-
+    clear_button = tk.Button(lee, text='Clear', font=('Arial', 16), command=clear)
+    clear_button.pack(side=tk.TOP)
 
 
 title_page_frame = tk.Frame(lee, bg='Blue')
@@ -284,6 +319,8 @@ title_label.pack(side=tk.TOP)
 
 play_button = tk.Button(title_page_frame, text='Play Game', font=('Arial', 30), bg='White', command=play_game)
 play_button.pack(side=tk.TOP, pady=20)
+
+
 
 
 

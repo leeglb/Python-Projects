@@ -7,8 +7,10 @@ calc
 
 lee = tk.Tk()
 
+button_pressed = False 
+
 class Initialiser:
-    lee.geometry("500x500")
+    lee.geometry("400x300")
     lee.title("Calculator")
     lee.config(bg='Black')
 
@@ -16,140 +18,171 @@ class OutputBar:
 
     #global values
     output_bar_frame = tk.Frame(lee)
-    output_bar_frame.config(bg="White", height=10)
+    output_bar_frame.config(bg="Black", height=10)
     output_bar_frame.pack(side=tk.TOP, fill='x')
 
-    first_list = []
-    answer_list = []
+    number_bar_frame = tk.Frame(output_bar_frame)
+    number_bar_frame.config(bg='Black', height=10)
+    number_bar_frame.pack(side=tk.RIGHT, fill='x')
+
+    final_variable = 0 
+    
 
 
     # remember it is reversed
     
 
-    output_label_nine = tk.Label(output_bar_frame, text='0', height=2, font=(20))
-    output_label_nine.pack(side=tk.RIGHT)
+    output_label_nine = tk.Label(number_bar_frame, text='0', height=2, font=(20))
+    output_label_nine.config(bg='Black')
+    output_label_nine.pack(side=tk.LEFT)
     
 
     def button_ones(self):
         a = OutputBar.output_label_nine
-        a.config(text='1')
+        a.destroy()
 
-        one_label = tk.Label(OutputBar.output_bar_frame, text='1', height=2, font=(20))
-        one_label.pack(side=tk.RIGHT, pady=2)
-        
+
+        one_label = tk.Label(OutputBar.number_bar_frame, text='1', height=2, font=(20))
+        one_label.config(fg='White', bg='Black')
+        one_label.pack(side=tk.LEFT, pady=2)   
+             
 
     def button_twos(self):
         a = OutputBar.output_label_nine
-        a.config(text='2')
+        a.destroy()
         
-        two_label = tk.Label(OutputBar.output_bar_frame, text='2', height=2, font=(20))
-        two_label.pack(side=tk.RIGHT, pady=2)
+        two_label = tk.Label(OutputBar.number_bar_frame, text='2', height=2, font=(20))
+        two_label.config(fg='White', bg='Black')
+        two_label.pack(side=tk.LEFT, pady=2)
         
         
     def button_threes(self):
         a = OutputBar.output_label_nine
-        a.config(text='3')
+        a.destroy()
         
-        three_label = tk.Label(OutputBar.output_bar_frame, text='3', height=2, font=(20))
-        three_label.pack(side=tk.RIGHT, pady=2)
+        three_label = tk.Label(OutputBar.number_bar_frame, text='3', height=2, font=(20))
+        three_label.config(fg='White', bg='Black')
+        three_label.pack(side=tk.LEFT, pady=2)
         
 
     def button_fours(self):
         a = OutputBar.output_label_nine
-        a.config(text='4')
+        a.destroy()
         
-        four_label = tk.Label(OutputBar.output_bar_frame, text='4', height=2, font=(20))
-        four_label.pack(side=tk.RIGHT, pady=2)
+        four_label = tk.Label(OutputBar.number_bar_frame, text='4', height=2, font=(20))
+        four_label.config(fg='White', bg='Black')
+        four_label.pack(side=tk.LEFT, pady=2)
         
 
     def button_fives(self):
         a = OutputBar.output_label_nine
-        a.config(text='5')
+        a.destroy()
         
-        five_label = tk.Label(OutputBar.output_bar_frame, text='5', height=2, font=(20))
-        five_label.pack(side=tk.RIGHT, pady=2)
+        five_label = tk.Label(OutputBar.number_bar_frame, text='5', height=2, font=(20))
+        five_label.config(fg='White', bg='Black')
+        five_label.pack(side=tk.LEFT, pady=2)
         
 
     def button_sixs(self):
         a = OutputBar.output_label_nine
-        a.config(text='6')
+        a.destroy()
         
-        six_label = tk.Label(OutputBar.output_bar_frame, text='6', height=2, font=(20))
-        six_label.pack(side=tk.RIGHT, pady=2)
+        six_label = tk.Label(OutputBar.number_bar_frame, text='6', height=2, font=(20))
+        six_label.config(fg='White', bg='Black')
+        six_label.pack(side=tk.LEFT, pady=2)
         
 
     def button_sevens(self):
         a = OutputBar.output_label_nine
-        a.config(text='7')
+        a.destroy()
         
-        seven_label = tk.Label(OutputBar.output_bar_frame, text='7', height=2, font=(20))
-        seven_label.pack(side=tk.RIGHT, pady=2)
+        seven_label = tk.Label(OutputBar.number_bar_frame, text='7', height=2, font=(20))
+        seven_label.config(fg='White', bg='Black')
+        seven_label.pack(side=tk.LEFT, pady=2)
         
 
     def button_eights(self):
         a = OutputBar.output_label_nine
-        a.config(text='8')
+        a.destroy()
         
-        eight_label = tk.Label(OutputBar.output_bar_frame, text='8', height=2, font=(20))
-        eight_label.pack(side=tk.RIGHT, pady=2)
+        eight_label = tk.Label(OutputBar.number_bar_frame, text='8', height=2, font=(20))
+        eight_label.config(fg='White', bg='Black')
+        eight_label.pack(side=tk.LEFT, pady=2)
         
 
     def button_nines(self):
         a = OutputBar.output_label_nine
-        a.config(text='9')
+        a.destroy()
         
-        nine_label = tk.Label(OutputBar.output_bar_frame, text='9', height=2, font=(20))
-        nine_label.pack(side=tk.RIGHT, pady=2)
+        nine_label = tk.Label(OutputBar.number_bar_frame, text='9', height=2, font=(20))
+        nine_label.config(fg='White', bg='Black')
+        nine_label.pack(side=tk.LEFT, pady=2)
         
 
     def a_c_button(self): 
-        a = OutputBar.output_bar_frame
+        a = OutputBar.number_bar_frame
         for widget in a.winfo_children():
-            widget.destroy() 
-        
-        
-        output_label_nine = tk.Label(OutputBar.output_bar_frame, text='0', height=2, font=(20))
-        output_label_nine.pack(side=tk.RIGHT)
-    
+            widget.pack_forget() #clears the array 
 
-            
-        
+        global final_variable 
+        final_variable = 0
+    
 
     def add_buttons(self):
-        a = OutputBar.output_label_nine
-        b = OutputBar.output_label
-        a_text = a.cget("text")
-        b_text = a.cget("text")
-        
-        global first_list
-        first_list = []
-        first_value = int(a_text + b_text)
-        second_value = int(a_text + b_text) 
-        first_list.append(first_value)
-        first_list.append(second_value)
-        added_value = first_value + second_value 
+       a = OutputBar.number_bar_frame
+       for widgets in a.winfo_children():
+           b = widgets.cget("text")
+           widgets.pack_forget()
 
-        global answer_list
-        answer_list = []
-        answer_list.append(added_value)
-
-        a.config(text='')
-        b.config(text='')
-
+           global final_variable
+           number_variable = b
+           final_variable = str(int(number_variable) + int(number_variable))
+           
     
     def equal_buttons(self):
+        a = OutputBar.number_bar_frame
+        for widget in a.winfo_children():
+            widget.destroy()
+
+        global final_variable
         
-        global answer_list
-        for first_num, second_num in answer_list:
-
-            a = OutputBar.output_label_nine
-            b = OutputBar.output_label
-
-            a.config(text=f"{first_num}")
-            b.config(text=f"{second_num}")
+        answer_label = tk.Label(OutputBar.number_bar_frame, text=f"{final_variable}", height=2, font=(20))
+        answer_label.config(bg='Black')
+        answer_label.pack(side=tk.RIGHT)
         
+    def times_buttons(self): 
+        
+       a = OutputBar.number_bar_frame
+       for widgets in a.winfo_children():
+           b = widgets.cget("text")
+           widgets.pack_forget()
 
-    
+           global final_variable
+           number_variable = b
+           final_variable = str(int(number_variable) * int(number_variable))
+
+    def minus_buttons(self): 
+        
+       a = OutputBar.number_bar_frame
+       for widgets in a.winfo_children():
+           b = widgets.cget("text")
+           widgets.pack_forget()
+
+           global final_variable
+           number_variable = b
+           final_variable = str(int(number_variable) - int(number_variable))
+
+    def divide_buttons(self):
+        
+        a = OutputBar.number_bar_frame
+        for widgets in a.winfo_children():
+           b = widgets.cget("text")
+           widgets.pack_forget()
+
+           global final_variable
+           number_variable = b
+           final_variable = str(int(number_variable) / int(number_variable))
+
             
         
 
@@ -172,6 +205,9 @@ class Button(OutputBar):
     ac_button = A.a_c_button
     add_button = A.add_buttons
     equal_button = A.equal_buttons
+    times_button = A.times_buttons
+    minus_buttonn = A.minus_buttons
+    divide_buttonn = A.divide_buttons
 
 
 
@@ -197,7 +233,7 @@ class Button(OutputBar):
     percentage_button = tk.Button(row_one_frame, text='%', font=button_size, width=button_width)
     percentage_button.grid(row=0, column=2, padx=10)
 
-    divide_button = tk.Button(row_one_frame, text='÷', bg='Orange', font=button_size, width=button_width)
+    divide_button = tk.Button(row_one_frame, text='÷', bg='Orange', font=button_size, width=button_width, command=divide_buttonn)
     divide_button.grid(row=0, column=3, padx=10)
 
     #row 2
@@ -215,7 +251,7 @@ class Button(OutputBar):
     nine_button = tk.Button(row_two_frame, text='9', font=button_size, width=button_width, command=button_nine)
     nine_button.grid(row=1, column=2, padx=10)
 
-    times_button = tk.Button(row_two_frame, text='x', bg='Orange', font=button_size, width=button_width)
+    times_button = tk.Button(row_two_frame, text='x', bg='Orange', font=button_size, width=button_width, command=times_button)
     times_button.grid(row=1, column=3, padx=10)
 
     #row 3 
@@ -233,7 +269,7 @@ class Button(OutputBar):
     six_button = tk.Button(row_three_frame, text='6', font=button_size, width=button_width, command=button_six)
     six_button.grid(row=2, column=2, padx=10)
 
-    minus_button = tk.Button(row_three_frame, text='-', bg='Orange', font=button_size, width=button_width)
+    minus_button = tk.Button(row_three_frame, text='-', bg='Orange', font=button_size, width=button_width, command=minus_buttonn)
     minus_button.grid(row=2, column=3, padx=10)
 
     #row 4

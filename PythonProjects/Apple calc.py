@@ -10,19 +10,19 @@ lee = tk.Tk()
 button_pressed = False 
 
 class Initialiser:
-    lee.geometry("400x300")
+    lee.geometry("600x600")
     lee.title("Calculator")
-    lee.config(bg='Yellow')
+    lee.config(bg='Medium Slate Blue')
 
 class OutputBar:    
 
     #global values
     output_bar_frame = tk.Frame(lee)
-    output_bar_frame.config(bg='Yellow', height=10)
+    output_bar_frame.config(bg='Medium Slate Blue', height=10)
     output_bar_frame.pack(side=tk.TOP, fill='x')
 
     number_bar_frame = tk.Frame(output_bar_frame)
-    number_bar_frame.config(bg='Yellow', height=10)
+    number_bar_frame.config(bg='Medium Slate Blue', height=10)
     number_bar_frame.pack(side=tk.RIGHT, fill='x')
 
     final_variable = 0 
@@ -33,7 +33,7 @@ class OutputBar:
     
 
     output_label_nine = tk.Label(number_bar_frame, text='0', height=2, font=(20))
-    output_label_nine.config(bg='Black')
+    output_label_nine.config(bg='Medium Slate Blue')
     output_label_nine.pack(side=tk.LEFT)
     
 
@@ -43,7 +43,7 @@ class OutputBar:
 
 
         one_label = tk.Label(OutputBar.number_bar_frame, text='1', height=2, font=(20))
-        one_label.config(fg='White', bg='Black')
+        one_label.config(fg='White', bg='Medium Slate Blue')
         one_label.pack(side=tk.LEFT, pady=2)   
              
 
@@ -52,7 +52,7 @@ class OutputBar:
         a.destroy()
         
         two_label = tk.Label(OutputBar.number_bar_frame, text='2', height=2, font=(20))
-        two_label.config(fg='White', bg='Black')
+        two_label.config(fg='White', bg='Medium Slate Blue')
         two_label.pack(side=tk.LEFT, pady=2)
         
         
@@ -61,7 +61,7 @@ class OutputBar:
         a.destroy()
         
         three_label = tk.Label(OutputBar.number_bar_frame, text='3', height=2, font=(20))
-        three_label.config(fg='White', bg='Black')
+        three_label.config(fg='White', bg='Medium Slate Blue')
         three_label.pack(side=tk.LEFT, pady=2)
         
 
@@ -70,7 +70,7 @@ class OutputBar:
         a.destroy()
         
         four_label = tk.Label(OutputBar.number_bar_frame, text='4', height=2, font=(20))
-        four_label.config(fg='White', bg='Black')
+        four_label.config(fg='White', bg='Medium Slate Blue')
         four_label.pack(side=tk.LEFT, pady=2)
         
 
@@ -79,7 +79,7 @@ class OutputBar:
         a.destroy()
         
         five_label = tk.Label(OutputBar.number_bar_frame, text='5', height=2, font=(20))
-        five_label.config(fg='White', bg='Black')
+        five_label.config(fg='White', bg='Medium Slate Blue')
         five_label.pack(side=tk.LEFT, pady=2)
         
 
@@ -88,7 +88,7 @@ class OutputBar:
         a.destroy()
         
         six_label = tk.Label(OutputBar.number_bar_frame, text='6', height=2, font=(20))
-        six_label.config(fg='White', bg='Black')
+        six_label.config(fg='White', bg='Medium Slate Blue')
         six_label.pack(side=tk.LEFT, pady=2)
         
 
@@ -97,7 +97,7 @@ class OutputBar:
         a.destroy()
         
         seven_label = tk.Label(OutputBar.number_bar_frame, text='7', height=2, font=(20))
-        seven_label.config(fg='White', bg='Black')
+        seven_label.config(fg='White', bg='Medium Slate Blue')
         seven_label.pack(side=tk.LEFT, pady=2)
         
 
@@ -106,7 +106,7 @@ class OutputBar:
         a.destroy()
         
         eight_label = tk.Label(OutputBar.number_bar_frame, text='8', height=2, font=(20))
-        eight_label.config(fg='White', bg='Black')
+        eight_label.config(fg='White', bg='Medium Slate Blue')
         eight_label.pack(side=tk.LEFT, pady=2)
         
 
@@ -115,7 +115,7 @@ class OutputBar:
         a.destroy()
         
         nine_label = tk.Label(OutputBar.number_bar_frame, text='9', height=2, font=(20))
-        nine_label.config(fg='White', bg='Black')
+        nine_label.config(fg='White', bg='Medium Slate Blue')
         nine_label.pack(side=tk.LEFT, pady=2)
         
 
@@ -130,17 +130,27 @@ class OutputBar:
 
     def add_buttons(self):
        a = OutputBar.number_bar_frame
+       first_value = 0
+       second_value = 0
+       
+
        for widgets in a.winfo_children():
-           b = widgets.cget("text")
-           b_value = b
-           widgets.pack_forget()
+           while first_value == 0: 
+            first_value = widgets.cget("text") #grabs the value
+            first_number_variable = first_value 
 
-           global final_variable
-           final_variable = 0 
+            widgets.pack_forget()
+           
+            if first_value != 0: 
+               second_value = widgets.cget("text")
+               second_number_variable = second_value 
+               
+               
+           
 
+           global final_variable 
            
-           
-           final_variable = str(int(number_variable) + int(number_variable))
+           final_variable = str(int(first_number_variable) + int(second_number_variable))
            
     
     def equal_buttons(self):
@@ -151,7 +161,7 @@ class OutputBar:
         global final_variable
         
         answer_label = tk.Label(OutputBar.number_bar_frame, text=f"{final_variable}", height=2, font=(20))
-        answer_label.config(bg='Black')
+        answer_label.config(bg='Medium Slate Blue', fg='White', font=(20))
         answer_label.pack(side=tk.RIGHT)
         
     def times_buttons(self): 
@@ -216,17 +226,17 @@ class Button(OutputBar):
 
 
     button_size = 30
-    button_width = 3
+    button_width = 6
 
     button_frame = tk.Frame(lee)
-    button_frame.config(bg='Black')
+    button_frame.config(bg='Medium Slate Blue')
     button_frame.pack(side=tk.TOP, anchor=tk.W, pady=5, fill='x', expand=False)
 
     #row 1 
 
     row_one_frame = tk.Frame(button_frame)
-    row_one_frame.config(bg='Black')
-    row_one_frame.pack(side=tk.TOP, pady=5, fill='x', expand=False)
+    row_one_frame.config(bg='Medium Slate Blue')
+    row_one_frame.pack(side=tk.TOP, pady=5, fill='x', expand=True)
 
     ac_button = tk.Button(row_one_frame, text='AC', font=button_size, width=button_width, command=ac_button)
     ac_button.grid(row=0, column=0, padx=10)
@@ -243,10 +253,10 @@ class Button(OutputBar):
     #row 2
 
     row_two_frame = tk.Frame(button_frame)
-    row_two_frame.config(bg='Black')
+    row_two_frame.config(bg='Medium Slate Blue')
     row_two_frame.pack(side=tk.TOP, fill='x', expand=False)
 
-    seven_button = tk.Button(row_two_frame, text='7', font=button_size, width=3, command=button_seven)
+    seven_button = tk.Button(row_two_frame, text='7', font=button_size, width=button_width, command=button_seven)
     seven_button.grid(row=1, column=0, padx=10, pady=2)
 
     eight_button = tk.Button(row_two_frame, text='8', font=button_size, width=button_width, command=button_eight)
@@ -261,10 +271,10 @@ class Button(OutputBar):
     #row 3 
 
     row_three_frame = tk.Frame(button_frame)
-    row_three_frame.config(bg='Black')
+    row_three_frame.config(bg='Medium Slate Blue')
     row_three_frame.pack(side=tk.TOP, fill='x', expand=False)
 
-    four_button = tk.Button(row_three_frame, text='4', font=button_size, width=3, command=button_four)
+    four_button = tk.Button(row_three_frame, text='4', font=button_size, width=button_width, command=button_four)
     four_button.grid(row=2, column=0, padx=10, pady=2)
 
     five_button = tk.Button(row_three_frame, text='5', font=button_size, width=button_width, command=button_five)
@@ -278,10 +288,10 @@ class Button(OutputBar):
 
     #row 4
     row_four_frame =tk.Frame(button_frame)
-    row_four_frame.config(bg='Black')
+    row_four_frame.config(bg='Medium Slate Blue')
     row_four_frame.pack(side=tk.TOP, fill='x', expand=False, pady=5)
 
-    one_button = tk.Button(row_three_frame, text='1', font=button_size, width=3, command=button_one)
+    one_button = tk.Button(row_three_frame, text='1', font=button_size, width=button_width, command=button_one)
     one_button.grid(row=3, column=0, padx=10, pady=2)
 
     two_button = tk.Button(row_three_frame, text='2', font=button_size, width=button_width, command=button_two)
@@ -296,17 +306,17 @@ class Button(OutputBar):
     #row 5 
 
     row_five_frame = tk.Frame(button_frame)
-    row_five_frame.config(bg='Black')
+    row_five_frame.config(bg='Medium Slate Blue')
     row_five_frame.pack(side=tk.TOP, fill='x', expand=False, pady=5)
 
-    zero_button = tk.Button(row_four_frame, text='0', font=button_size, width=9)
-    zero_button.grid(row=4, column=0, padx=10, pady=2)
+    zero_button = tk.Button(row_four_frame, text='0', font=button_size, width=button_width)
+    zero_button.grid(row=4, column=0, padx=10, pady=2, columnspan=4)
 
     decimal_button = tk.Button(row_four_frame, text='.', font=button_size, width=button_width)
-    decimal_button.grid(row=4, column=1, padx=10)
+    decimal_button.grid(row=4, column=5, padx=10)
 
     equal_buttons = tk.Button(row_four_frame, text='=', bg='Orange', font=button_size, width=button_width, command=equal_button)
-    equal_buttons.grid(row=4, column=2, padx=10)
+    equal_buttons.grid(row=4, column=6, padx=10)
 
 
 

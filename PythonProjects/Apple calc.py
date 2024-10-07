@@ -26,7 +26,8 @@ class OutputBar:
     number_bar_frame.pack(side=tk.RIGHT, fill='x')
 
     final_variable = 0 
-    
+    addition_variable_one = 0
+    addition_second_variable = 0 
 
 
     # remember it is reversed
@@ -130,27 +131,25 @@ class OutputBar:
 
     def add_buttons(self):
        a = OutputBar.number_bar_frame
-       first_value = 0
-       second_value = 0
-       
 
        for widgets in a.winfo_children():
-           while first_value == 0: 
+        widgets.pack_forget()
+        
+        global addition_variable_one 
+        while addition_variable_one == 0: 
             first_value = widgets.cget("text") #grabs the value
-            first_number_variable = first_value 
-
-            widgets.pack_forget()
+            
+            addition_variable_one = first_value 
            
-            if first_value != 0: 
-               second_value = widgets.cget("text")
-               second_number_variable = second_value 
+        if addition_variable_one != 0: 
+            second_value = widgets.cget("text")
+            global addition_second_variable 
+            addition_second_variable = second_value 
                
-               
-           
 
-           global final_variable 
+        global final_variable 
            
-           final_variable = str(int(first_number_variable) + int(second_number_variable))
+        final_variable = str(int(addition_variable_one) + int(addition_second_variable))
            
     
     def equal_buttons(self):

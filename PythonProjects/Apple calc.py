@@ -12,17 +12,17 @@ button_pressed = False
 class Initialiser:
     lee.geometry("400x300")
     lee.title("Calculator")
-    lee.config(bg='Black')
+    lee.config(bg='Yellow')
 
 class OutputBar:    
 
     #global values
     output_bar_frame = tk.Frame(lee)
-    output_bar_frame.config(bg="Black", height=10)
+    output_bar_frame.config(bg='Yellow', height=10)
     output_bar_frame.pack(side=tk.TOP, fill='x')
 
     number_bar_frame = tk.Frame(output_bar_frame)
-    number_bar_frame.config(bg='Black', height=10)
+    number_bar_frame.config(bg='Yellow', height=10)
     number_bar_frame.pack(side=tk.RIGHT, fill='x')
 
     final_variable = 0 
@@ -132,10 +132,14 @@ class OutputBar:
        a = OutputBar.number_bar_frame
        for widgets in a.winfo_children():
            b = widgets.cget("text")
+           b_value = b
            widgets.pack_forget()
 
            global final_variable
-           number_variable = b
+           final_variable = 0 
+
+           
+           
            final_variable = str(int(number_variable) + int(number_variable))
            
     

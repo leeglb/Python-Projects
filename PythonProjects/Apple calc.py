@@ -18,16 +18,16 @@ class OutputBar:
 
     #global values
     output_bar_frame = tk.Frame(lee)
-    output_bar_frame.config(bg='Medium Slate Blue', height=10)
+    output_bar_frame.config(bg='Medium Slate Blue', height=10) #for the outputbar itself
     output_bar_frame.pack(side=tk.TOP, fill='x')
 
     number_bar_frame = tk.Frame(output_bar_frame)
-    number_bar_frame.config(bg='Medium Slate Blue', height=10)
+    number_bar_frame.config(bg='Medium Slate Blue', height=10) #for the buttons
     number_bar_frame.pack(side=tk.RIGHT, fill='x')
 
     final_variable = 0 
-    addition_variable_one = 0
-    addition_second_variable = 0 
+    variable_one = 0
+    variable_two = 0 
 
 
     # remember it is reversed
@@ -130,26 +130,24 @@ class OutputBar:
     
 
     def add_buttons(self):
-       a = OutputBar.number_bar_frame
+       bar_frame = OutputBar.number_bar_frame
+       widgets = bar_frame.winfo_children()
 
-       for widgets in a.winfo_children():
+       for widget in widgets:
+
+        global variable_one 
+        variable_one = str(widget[0].cget("text"))
+
         widgets.pack_forget()
-        
-        global addition_variable_one 
-        while addition_variable_one == 0: 
-            first_value = widgets.cget("text") #grabs the value
-            
-            addition_variable_one = first_value 
-           
-        if addition_variable_one != 0: 
-            second_value = widgets.cget("text")
-            global addition_second_variable 
-            addition_second_variable = second_value 
-               
 
-        global final_variable 
-           
-        final_variable = str(int(addition_variable_one) + int(addition_second_variable))
+        if len(widget[0] >= 1):
+
+            global variable_two
+            variable_two = str(widget[1].cget("text"))
+
+            global final_variable 
+            final_variable = str((variable_one) + (variable_two))
+        
            
     
     def equal_buttons(self):

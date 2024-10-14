@@ -22,7 +22,7 @@ class OutputBar:
     output_bar_frame.pack(side=tk.TOP, fill='x')
 
     number_textbox = tk.Text(calculator)
-    number_textbox.config(bg="White", height=5)
+    number_textbox.config(bg='Black', height=5)
     number_textbox.pack(side=tk.TOP, fill='x')
 
     number_textbox_font = (20)
@@ -170,6 +170,11 @@ class OutputBar:
 
             number_input_array = OutputBar.number_textbox
             number_input_array.delete('1.0', tk.END)
+
+            for index, values in enumerate(number_input_value):
+                if values == '.':
+                    
+
         
         text_value = "9"
 
@@ -187,12 +192,8 @@ class OutputBar:
 
     def a_c_button(self):
        
-       text_value = "0"
-       
        number_input_array = OutputBar.number_textbox
        number_input_array.delete('1.0', tk.END)
-
-       number_input_array.insert(tk.END, text_value)
 
 
     def add_buttons(self):
@@ -244,6 +245,36 @@ class OutputBar:
 
        number_input_array.delete('1.0', tk.END)
 
+    def percentage_buttons(self):
+        
+        number_input_array = OutputBar.number_textbox
+        array_value = number_input_array.get('1.0', tk.END)
+
+        before_division = int(array_value)
+
+        during_division = before_division / 100 
+
+        after_division = str(during_division)
+
+        global final_variable
+        final_variable = after_division
+
+        number_input_array.delete('1.0', tk.END)
+        OutputBar.number_textbox.insert(tk.END, final_variable)
+
+    def decimal_buttons(self): 
+
+        number_input_array = OutputBar.number_textbox 
+        array_value = number_input_array.get('1.0', tk.END)
+
+        #inserts after the value
+
+        number_input_array.delete('1.0', tk.END)
+
+        decimal_value = float(array_value)
+
+        OutputBar.number_textbox.insert(tk.END, decimal_value)        
+
 
     def equal_buttons(self):
        
@@ -278,6 +309,7 @@ class OutputBar:
        number_input_array.delete('1.0', tk.END)
        OutputBar.number_textbox.insert(tk.END, final_answer_value)
        
+
      
         
 
@@ -306,6 +338,8 @@ class Button(OutputBar):
     times_button = A.times_buttons
     minus_buttonn = A.minus_buttons
     divide_buttonn = A.divide_buttons
+    percentage_button = A.percentage_buttons 
+    decimal_button = A.decimal_buttons
 
 
 
@@ -328,7 +362,7 @@ class Button(OutputBar):
     plus_minus_button = tk.Button(row_one_frame, text='+/-', font=button_size, width=button_width)
     plus_minus_button.grid(row=0, column=1, padx=10)
 
-    percentage_button = tk.Button(row_one_frame, text='%', font=button_size, width=button_width)
+    percentage_button = tk.Button(row_one_frame, text='%', font=button_size, width=button_width, command=percentage_button)
     percentage_button.grid(row=0, column=2, padx=10)
 
     divide_button = tk.Button(row_one_frame, text='÷', bg='White', font=button_size, width=button_width, command=divide_buttonn)
@@ -396,7 +430,7 @@ class Button(OutputBar):
     zero_button = tk.Button(row_four_frame, text='0', font=button_size, width=button_width, command=button_zeroes)
     zero_button.grid(row=4, column=0, padx=10, pady=2, columnspan=4)
 
-    decimal_button = tk.Button(row_four_frame, text='.', font=button_size, width=button_width)
+    decimal_button = tk.Button(row_four_frame, text='.', font=button_size, width=button_width, command=decimal_button)
     decimal_button.grid(row=4, column=5, padx=10)
 
     equal_buttons = tk.Button(row_four_frame, text='=', bg='White', font=button_size, width=button_width, command=equal_button)

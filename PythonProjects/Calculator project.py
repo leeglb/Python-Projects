@@ -10,7 +10,7 @@ calculator = tk.Tk()
 button_pressed = False 
 
 class Initialiser:
-    calculator.geometry("600x600")
+    calculator.geometry("600x400")
     calculator.title("Calculator")
     calculator.config(bg='White')
 
@@ -18,8 +18,15 @@ class OutputBar:
 
     #global values
     output_bar_frame = tk.Frame(calculator)
-    output_bar_frame.config(bg='White', height=10) #for the outputbar itself
+    output_bar_frame.config(bg='White', height=10) #for the outputbar frame itself
     output_bar_frame.pack(side=tk.TOP, fill='x')
+
+    number_textbox = tk.Text(calculator)
+    number_textbox.config(bg="White", height=5)
+    number_textbox.pack(side=tk.TOP, fill='x')
+
+    number_textbox_font = (20)
+    number_textbox.config(font=number_textbox_font)
 
     number_bar_frame = tk.Frame(output_bar_frame)
     number_bar_frame.config(bg='White', height=10) #for the buttons
@@ -33,218 +40,245 @@ class OutputBar:
 
     # remember it is reversed
     # the most right side of the calculator -> will start as 0 
-    output_label_nine = tk.Label(number_bar_frame, text='0', height=2, font=(20))
-    output_label_nine.config(bg='White')
-    output_label_nine.pack(side=tk.LEFT)
+
     
 
     def button_ones(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
+        
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
 
-        one_label = tk.Label(OutputBar.number_bar_frame, text='1', height=2, font=(20))
-        one_label.config(fg='Black', bg='White')
-        one_label.pack(side=tk.LEFT, pady=2)   
-             
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
+        else:
+            text_value = "1"
+            OutputBar.number_textbox.insert(tk.END, text_value) 
 
     def button_twos(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
-        
-        two_label = tk.Label(OutputBar.number_bar_frame, text='2', height=2, font=(20))
-        two_label.config(fg='Black', bg='White')
-        two_label.pack(side=tk.LEFT, pady=2)
+
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
+
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
+
+        text_value = "2"
+
+        OutputBar.number_textbox.insert(tk.END, text_value) 
         
         
     def button_threes(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
+
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
+
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
         
-        three_label = tk.Label(OutputBar.number_bar_frame, text='3', height=2, font=(20))
-        three_label.config(fg='Black', bg='White')
-        three_label.pack(side=tk.LEFT, pady=2)
+        text_value = "3"
+
+        OutputBar.number_textbox.insert(tk.END, text_value) 
         
 
     def button_fours(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
+
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
+
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
         
-        four_label = tk.Label(OutputBar.number_bar_frame, text='4', height=2, font=(20))
-        four_label.config(fg='Black', bg='White')
-        four_label.pack(side=tk.LEFT, pady=2)
+        text_value = "4"
+
+        OutputBar.number_textbox.insert(tk.END, text_value) 
         
 
     def button_fives(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
+
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
+
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
         
-        five_label = tk.Label(OutputBar.number_bar_frame, text='5', height=2, font=(20))
-        five_label.config(fg='Black', bg='White')
-        five_label.pack(side=tk.LEFT, pady=2)
+        text_value = "5"
+
+        OutputBar.number_textbox.insert(tk.END, text_value) 
         
 
     def button_sixs(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
+
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
+
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
         
-        six_label = tk.Label(OutputBar.number_bar_frame, text='6', height=2, font=(20))
-        six_label.config(fg='Black', bg='White')
-        six_label.pack(side=tk.LEFT, pady=2)
+        text_value = "6"
+
+        OutputBar.number_textbox.insert(tk.END, text_value) 
         
 
     def button_sevens(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
+
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
+
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
         
-        seven_label = tk.Label(OutputBar.number_bar_frame, text='7', height=2, font=(20))
-        seven_label.config(fg='Black', bg='White')
-        seven_label.pack(side=tk.LEFT, pady=2)
+        text_value = "7"
+
+        OutputBar.number_textbox.insert(tk.END, text_value) 
         
 
     def button_eights(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
-        
-        eight_label = tk.Label(OutputBar.number_bar_frame, text='8', height=2, font=(20))
-        eight_label.config(fg='Black', bg='White')
-        eight_label.pack(side=tk.LEFT, pady=2)
+
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
+
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
+
+        text_value = "8"
+
+        OutputBar.number_textbox.insert(tk.END, text_value) 
         
 
     def button_nines(self):
-        bar_frame = OutputBar.output_label_nine
-        bar_frame.destroy()
+
+        number_input_array = OutputBar.number_textbox
+        number_input_value = number_input_array.get('1.0', tk.END)
+
+        if number_input_value == "0":
+
+            number_input_array = OutputBar.number_textbox
+            number_input_array.delete('1.0', tk.END)
         
-        nine_label = tk.Label(OutputBar.number_bar_frame, text='9', height=2, font=(20))
-        nine_label.config(fg='Black', bg='White')
-        nine_label.pack(side=tk.LEFT, pady=2)
+        text_value = "9"
+
+        OutputBar.number_textbox.insert(tk.END, text_value) 
+
+    def button_zeros(self):
+
+        number_input_array = OutputBar.number_textbox
+        number_input_array.delete('1.0', tk.END)
+
+        text_value = "0"
+
+        OutputBar.number_textbox.insert(tk.END, text_value)
         
 
     def a_c_button(self):
+       
+       text_value = "0"
+       
+       number_input_array = OutputBar.number_textbox
+       number_input_array.delete('1.0', tk.END)
 
-        bar_frame = OutputBar.number_bar_frame
+       number_input_array.insert(tk.END, text_value)
 
-        for widget in bar_frame.winfo_children():
-            widget.pack_forget() #clears the array 
-          
-
-        global final_variable 
-        final_variable = 0
-    
 
     def add_buttons(self):
        
-       bar_frame = OutputBar.number_bar_frame
-       widgets = bar_frame.winfo_children()
-       initial_value = None
+       number_input_array = OutputBar.number_textbox
+       array_value = number_input_array.get('1.0', tk.END)
        global operation
        operation = '+'
+
+       global variable_one
+       variable_one = array_value
+
+       number_input_array.delete('1.0', tk.END)
        
-       for widget in widgets:
-           
-           initial_value = widget.cget("text")
-
-           widget.pack_forget() #clears the bar
-
-           if initial_value != '0':
-               global variable_one 
-               variable_one = initial_value
-               
-           else:
-               pass
            
     def minus_buttons(self): 
        
-       bar_frame = OutputBar.number_bar_frame
-       widgets = bar_frame.winfo_children()
+       number_input_array = OutputBar.number_textbox
+       array_value = number_input_array.get('1.0', tk.END)
        global operation
        operation = '-'
 
-       for widget in widgets:
-           
-           initial_value = widget.cget("text")
+       global variable_one
+       variable_one = array_value
 
-           widget.pack_forget() #clears the bar
-
-           if initial_value != '0':
-               global variable_one 
-               variable_one = initial_value
-               
-           else:
-               pass
+       number_input_array.delete('1.0', tk.END)
         
     def times_buttons(self): 
     
-       bar_frame = OutputBar.number_bar_frame
-       widgets = bar_frame.winfo_children()
+       number_input_array = OutputBar.number_textbox
+       array_value = number_input_array.get('1.0', tk.END)
        global operation
        operation = 'x'
 
-       for widget in widgets:
-           
-           initial_value = widget.cget("text")
+       global variable_one
+       variable_one = array_value
 
-           widget.pack_forget() #clears the bar
-
-           if initial_value != '0':
-               global variable_one 
-               variable_one = initial_value
-               
-           else:
-               pass
-
+       number_input_array.delete('1.0', tk.END)
 
     def divide_buttons(self):
        
-       bar_frame = OutputBar.number_bar_frame
-       widgets = bar_frame.winfo_children()
+       number_input_array = OutputBar.number_textbox
+       array_value = number_input_array.get('1.0', tk.END)
        global operation
        operation = '/'
 
-       for widget in widgets:
-           
-           initial_value = widget.cget("text")
+       global variable_one
+       variable_one = array_value
 
-           widget.pack_forget() #clears the bar
-
-           if initial_value != '0':
-               global variable_one 
-               variable_one = initial_value
-               
-           else:
-               pass
+       number_input_array.delete('1.0', tk.END)
 
 
     def equal_buttons(self):
-        bar_frame = OutputBar.number_bar_frame
-        for widget in bar_frame.winfo_children():
-            global variable_two 
-            variable_two = widget.cget("text")
-            widget.pack_forget()
+       
+       number_input_array = OutputBar.number_textbox
+       array_value = number_input_array.get('1.0', tk.END)
 
+       global variable_two
+       variable_two = array_value
 
-        global operation
-        global final_variable
-        global variable_one
+       global operation
+       global final_variable
+       global variable_one
+     
 
-        if operation == '+':
+       if operation == '+':
              
             final_variable = str(float(variable_one) + float(variable_two))
 
-        elif operation == 'x':
+       elif operation == 'x':
              
             final_variable = str(float(variable_one) * float(variable_two))
 
-        elif operation == '/':
+       elif operation == '/':
              
             final_variable = str(float(variable_one) / float(variable_two))
         
-        elif operation == '-':
+       elif operation == '-':
             
             final_variable = str(float(variable_one) - float(variable_two))
-        
-        answer_label = tk.Label(OutputBar.number_bar_frame, text=f"{final_variable}", height=2, font=(20))
-        answer_label.config(bg='White', fg='Black', font=(20))
-        answer_label.pack(side=tk.RIGHT)        
+
+       final_answer_value = str(final_variable)
+       number_input_array.delete('1.0', tk.END)
+       OutputBar.number_textbox.insert(tk.END, final_answer_value)
+       
+     
         
 
             
@@ -265,6 +299,7 @@ class Button(OutputBar):
     button_seven = A.button_sevens
     button_eight = A.button_eights
     button_nine = A.button_nines
+    button_zeroes = A.button_zeros
     ac_button = A.a_c_button
     add_button = A.add_buttons
     equal_button = A.equal_buttons
@@ -279,7 +314,7 @@ class Button(OutputBar):
 
     button_frame = tk.Frame(calculator)
     button_frame.config(bg='White')
-    button_frame.pack(side=tk.TOP, anchor=tk.W, pady=5, fill='x', expand=False)
+    button_frame.pack(side=tk.TOP, pady=5, fill='x', expand=False)
 
     #row 1 
 
@@ -358,7 +393,7 @@ class Button(OutputBar):
     row_five_frame.config(bg='White')
     row_five_frame.pack(side=tk.TOP, fill='x', expand=False, pady=5)
 
-    zero_button = tk.Button(row_four_frame, text='0', font=button_size, width=button_width)
+    zero_button = tk.Button(row_four_frame, text='0', font=button_size, width=button_width, command=button_zeroes)
     zero_button.grid(row=4, column=0, padx=10, pady=2, columnspan=4)
 
     decimal_button = tk.Button(row_four_frame, text='.', font=button_size, width=button_width)

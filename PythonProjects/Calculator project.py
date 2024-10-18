@@ -10,9 +10,9 @@ calculator = tk.Tk()
 button_pressed = False 
 
 class Initialiser:
-    calculator.geometry("600x400")
+    calculator.geometry("600x270")
     calculator.title("Calculator")
-    calculator.config(bg='White')
+    calculator.config(bg='Black')
 
 class OutputBar:    
 
@@ -170,12 +170,7 @@ class OutputBar:
 
             number_input_array = OutputBar.number_textbox
             number_input_array.delete('1.0', tk.END)
-
-            for index, values in enumerate(number_input_value):
-                if values == '.':
                     
-
-        
         text_value = "9"
 
         OutputBar.number_textbox.insert(tk.END, text_value) 
@@ -250,7 +245,7 @@ class OutputBar:
         number_input_array = OutputBar.number_textbox
         array_value = number_input_array.get('1.0', tk.END)
 
-        before_division = int(array_value)
+        before_division = float(array_value)
 
         during_division = before_division / 100 
 
@@ -264,14 +259,9 @@ class OutputBar:
 
     def decimal_buttons(self): 
 
-        number_input_array = OutputBar.number_textbox 
-        array_value = number_input_array.get('1.0', tk.END)
-
         #inserts after the value
 
-        number_input_array.delete('1.0', tk.END)
-
-        decimal_value = float(array_value)
+        decimal_value = '.'
 
         OutputBar.number_textbox.insert(tk.END, decimal_value)        
 
@@ -293,29 +283,27 @@ class OutputBar:
              
             final_variable = str(float(variable_one) + float(variable_two))
 
+
        elif operation == 'x':
-             
+
+            
             final_variable = str(float(variable_one) * float(variable_two))
+
 
        elif operation == '/':
              
             final_variable = str(float(variable_one) / float(variable_two))
+
         
        elif operation == '-':
             
             final_variable = str(float(variable_one) - float(variable_two))
 
+
        final_answer_value = str(final_variable)
        number_input_array.delete('1.0', tk.END)
        OutputBar.number_textbox.insert(tk.END, final_answer_value)
-       
-
      
-        
-
-            
-     
-
 
 class Button(OutputBar):
 
@@ -345,16 +333,19 @@ class Button(OutputBar):
 
     button_size = 30
     button_width = 6
+    row_colour = 'Black'
+    button_font_colour = 'White'
+
 
     button_frame = tk.Frame(calculator)
     button_frame.config(bg='White')
-    button_frame.pack(side=tk.TOP, pady=5, fill='x', expand=False)
+    button_frame.pack(side=tk.TOP, fill='x', expand=False)
 
     #row 1 
 
     row_one_frame = tk.Frame(button_frame)
-    row_one_frame.config(bg='White')
-    row_one_frame.pack(side=tk.TOP, pady=5, fill='x', expand=True)
+    row_one_frame.config(bg=row_colour)
+    row_one_frame.pack(side=tk.TOP, fill='x', expand=True)
 
     ac_button = tk.Button(row_one_frame, text='AC', font=button_size, width=button_width, command=ac_button)
     ac_button.grid(row=0, column=0, padx=10)
@@ -371,7 +362,7 @@ class Button(OutputBar):
     #row 2
 
     row_two_frame = tk.Frame(button_frame)
-    row_two_frame.config(bg='White')
+    row_two_frame.config(bg=row_colour)
     row_two_frame.pack(side=tk.TOP, fill='x', expand=False)
 
     seven_button = tk.Button(row_two_frame, text='7', font=button_size, width=button_width, command=button_seven)
@@ -389,16 +380,16 @@ class Button(OutputBar):
     #row 3 
 
     row_three_frame = tk.Frame(button_frame)
-    row_three_frame.config(bg='White')
+    row_three_frame.config(bg=row_colour)
     row_three_frame.pack(side=tk.TOP, fill='x', expand=False)
 
     four_button = tk.Button(row_three_frame, text='4', font=button_size, width=button_width, command=button_four)
     four_button.grid(row=2, column=0, padx=10, pady=2)
 
-    five_button = tk.Button(row_three_frame, text='5', font=button_size, width=button_width, command=button_five)
+    five_button = tk.Button(row_three_frame, text='5', bg='White', font=button_size, width=button_width, command=button_five)
     five_button.grid(row=2, column=1, padx=10)
 
-    six_button = tk.Button(row_three_frame, text='6', font=button_size, width=button_width, command=button_six)
+    six_button = tk.Button(row_three_frame, text='6', bg='White', font=button_size, width=button_width, command=button_six)
     six_button.grid(row=2, column=2, padx=10)
 
     minus_button = tk.Button(row_three_frame, text='-', bg='White', font=button_size, width=button_width, command=minus_buttonn)
@@ -406,8 +397,8 @@ class Button(OutputBar):
 
     #row 4
     row_four_frame =tk.Frame(button_frame)
-    row_four_frame.config(bg='White')
-    row_four_frame.pack(side=tk.TOP, fill='x', expand=False, pady=5)
+    row_four_frame.config(bg=row_colour)
+    row_four_frame.pack(side=tk.TOP, fill='x', expand=False)
 
     one_button = tk.Button(row_three_frame, text='1', font=button_size, width=button_width, command=button_one)
     one_button.grid(row=3, column=0, padx=10, pady=2)
@@ -424,8 +415,8 @@ class Button(OutputBar):
     #row 5 
 
     row_five_frame = tk.Frame(button_frame)
-    row_five_frame.config(bg='White')
-    row_five_frame.pack(side=tk.TOP, fill='x', expand=False, pady=5)
+    row_five_frame.config(bg=row_colour)
+    row_five_frame.pack(side=tk.TOP, fill='x', expand=False)
 
     zero_button = tk.Button(row_four_frame, text='0', font=button_size, width=button_width, command=button_zeroes)
     zero_button.grid(row=4, column=0, padx=10, pady=2, columnspan=4)

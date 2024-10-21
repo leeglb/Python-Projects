@@ -265,6 +265,15 @@ class OutputBar:
 
         OutputBar.number_textbox.insert(tk.END, decimal_value)        
 
+    def negative_buttons(self): 
+
+        number_input_array = OutputBar.number_textbox
+        array_value = number_input_array.get('1.0', tk.END)
+        number_input_array.delete('1.0', tk.END)
+
+        negative_value = (int(array_value) - int(array_value)) - int(array_value) # value minuses three times to reach negative
+
+        OutputBar.number_textbox.insert(tk.END, str(negative_value))
 
     def equal_buttons(self):
        
@@ -328,6 +337,7 @@ class Button(OutputBar):
     divide_buttonn = A.divide_buttons
     percentage_button = A.percentage_buttons 
     decimal_button = A.decimal_buttons
+    negative_button = A.negative_buttons
 
 
 
@@ -350,7 +360,7 @@ class Button(OutputBar):
     ac_button = tk.Button(row_one_frame, text='AC', font=button_size, width=button_width, command=ac_button)
     ac_button.grid(row=0, column=0, padx=10)
 
-    plus_minus_button = tk.Button(row_one_frame, text='+/-', font=button_size, width=button_width)
+    plus_minus_button = tk.Button(row_one_frame, text='+/-', font=button_size, width=button_width, command=negative_button)
     plus_minus_button.grid(row=0, column=1, padx=10)
 
     percentage_button = tk.Button(row_one_frame, text='%', font=button_size, width=button_width, command=percentage_button)

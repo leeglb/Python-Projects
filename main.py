@@ -6,6 +6,13 @@ from random import randrange
 import psycopg2
 from psycopg2.extras import RealDictCursor
 import time
+from .model import models
+from .database import engine 
+
+
+models.Base.metadata.create_all(bind=engine)
+
+
 app = FastAPI()
 
 class Post(BaseModel):
@@ -76,26 +83,29 @@ Update -> Put/Patch -> /posts/:id -> @app.put("/posts/{id}")
 Delete -> Delete -> /posts/:id -> @app.delete("/posts/{id}")
 """
 
-@app.get("/posts/latest") #structure the paths in order -> so you dont match another request
-def get_latest_post():
-    post = my_posts[len(my_posts)-1]
-    return {"detail": post}
 
 @app.get("/posts/{id}") #path parameter 
 def get_post(id: int, response: Response):
-    post = find_post(int(id))
-    if not post:
+
+    cursor.execute("""SELECT * FROM posts WHERE id = %s """, (str(id)))
+
+    received_post = cursor.fetchone()
+
+    if not received_post:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail= f"post {id} was not found")
-    return {"this is your post": post}
+    return {"this is your posts": received_post}
 
 @app.delete("/posts/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(id: int):
-    post = find_index_post(id)
 
-    if post == None:
+    cursor.execute("""DELETE FROM posts WHERE id = %s RETURNING * """, (str(id)))
+
+    received_post = cursor.fetchone()
+
+    conn.commit()
+
+    if received_post == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post {id} does not exist")
-    my_posts.pop(post)
-
 
 
     return Response(status_code=status.HTTP_204_NO_CONTENT)
@@ -103,13 +113,13 @@ def delete_post(id: int):
 @app.put("/posts/{id}")
 def update_post(id: int, post: Post):
 
-    index = find_index_post(id)
+    cursor.execute("""UPDATE posts SET id = %s, title = %s, content = %s, published = %s RETURNING * """, (post.title, post.content, post.published, (str(id))))
 
-    if index == None:
+    updated_post = cursor.fetchone()
+
+    conn.commit() 
+
+    if updated_post == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Post {id} does not exist")
     
-    post_dict = post.dict()
-    post_dict['id'] = id
-    my_posts[index] = post_dict
-
-    return {"data": post_dict}
+    return {"data": updated_post}

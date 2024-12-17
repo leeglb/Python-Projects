@@ -85,7 +85,7 @@ Delete -> Delete -> /posts/:id -> @app.delete("/posts/{id}")
 
 
 @app.get("/posts/{id}") #path parameter 
-def get_post(id: int, response: Response):
+def get_post(id: int, db: Session = Depends(get_db)):
 
     cursor.execute("""SELECT * FROM posts WHERE id = %s """, (str(id)))
 

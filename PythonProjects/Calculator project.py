@@ -25,7 +25,7 @@ class OutputBar:
     number_textbox.config(bg='Black', height=5)
     number_textbox.pack(side=tk.TOP, fill='x')
 
-    number_textbox_font = (20)
+    number_textbox_font = (40)
     number_textbox.config(font=number_textbox_font)
 
     number_bar_frame = tk.Frame(output_bar_frame)

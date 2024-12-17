@@ -1,6 +1,8 @@
 import random as random 
 import tkinter as tk
 
+
+
 #universal value:
 EMPTY_GRID_VALUE = '-'
 FULL_GRID = '|-|-|-|\n|-|-|-|\n|-|-|-|'
@@ -64,7 +66,7 @@ def play_game():
             global x_button
             global O_button
 
-            if x_button == True:
+            if x_button == True: #if true, randomise choice for other tiles
                 empty_tile_1.config(text='X')
             
             elif O_button == True:
@@ -293,7 +295,7 @@ title_page_frame.pack(side=tk.TOP)
 title_label = tk.Label(title_page_frame, text='Tic Tac Toe Game', font=('Arial', 30), bg=bgg, fg='White')
 title_label.pack(side=tk.TOP, pady=20)
 
-play_button = tk.Button(title_page_frame, text='Play Game', font=('Arial', 30), bg=bgg, command=play_game, fg='White')
+play_button = tk.Button(title_page_frame, text='Play Game', font=('Arial', 30), bg=bgg, command=play_game, fg='Black')
 play_button.pack(side=tk.TOP, pady=20)
 
 

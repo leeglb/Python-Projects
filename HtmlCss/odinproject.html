@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<head>
+    <title>HTML & CSS Learning</title>
+    <link rel="stylesheet" href="odinproject.css"></a>
+</head>
+
+<body id="htmlsection">
+
+    <div class="title">
+
+        <em>
+        <h1>Lee's Learning Of HTML & CSS</h1>
+        <h2>Self-interpretation of notes:</h2>
+        </em>
+
+    </div>
+    
+
+    <div class="htmlparams">
+
+        <ol>
+            <li>meta charset=utf-8</li>
+            <li>meta name=viewport content=width=device-width, initial-scale=1</li>
+            <li>html lang='en'</li>
+        </ol>
+
+    </div>
+
+    <div class="fontandfamilies">
+        <h1>Working With Text</h1>
+        <ol>
+            <li>Strong 'bold' text  -  'strong': The word <strong>strong</strong> is bold</li>
+            <br>
+            <li>Italic 'emphasised' text  -  'em': The word <em>emphasised</em> is italic</li>
+            <br>
+            <li>Cmd + '/' - Creates comment for mac</li>
+            <br>
+            <li>Ctrl + '/' - Creates comment for windows</li>
+            <br>
+            <li>Creating an unordered list - 'ul' and 'li' for each item</li>
+            <br>
+            <li>Creating an ordered list - 'ol'</li>
+        </ol>
+    </div>
+
+    <div class="lists">
+        <p><u>'ul' vs 'ol'</u></p>
+        <ul> ul
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <ol> ol 
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+
+    </div>
+        
+    <div class="anchors">
+        
+        <p><u>Working with anchor text:</u> </p>
+        <p>We use the 'a' method - <a>This sentence is anchored.</a></p>
+        <a href="https://www.theodinproject.com/about">This sentence is anchored to the odin website.</a> 
+        <p>In which we use the a href -> inserting a url within the 'a' params.</p>
+
+        <ol> 
+            <p>Inserting after the href quotation 'target' specifies where the link will be opened</p>
+            
+            <li>target = _blank - opens the link in a new link/tab</li>
+            <br>
+            <li>target = _self - opens the link in the same tab</li>
+            <br>
+            <li>rel='noopener noreferrer' - security reaons</li>
+
+            <p> We can reference website links or links to parts of our page</p>
+        </ol>
+
+        <p>Using images, we can insert them using the 'img src' method</p>
+        <img src="https://www.theodinproject.com/mstile-310x310.png" height="200px" width="200px" alt="Image from the Odin Project">    
+        <p>Here we can see an inserted image</p>
+    </div>
+
+</body>
+
+<body id="cssarea">
+    
+    <div class="csssection">
+
+        <p><em>Beginning Of CSS Section</em></p>
+
+                        
+    </div>
+
+    <div class="basicsyntax">
+
+        <p>The unviversal selector is: *</p>
+        <p>Also to create comments in Css, we use the /* and */</p>
+        <p id="cvid"><u><em>Difference between classes and IDs</em></u></p>
+        <p>Classes are applicable more than once and are represented as 
+            div.classname
+        </p>
+        <p>In comparison to IDs which are only applicable to one. They are 
+            represented as #idname
+        </p>
+
+    </div>
+
+    <div class="theboxmodel">
+
+        <p><u>Some essentials to know: </u></p>
+
+        <ul>
+            <li>Padding: Increases the space between the 
+                border of a box and the content of a box.</li>
+            <li>Border: Adds space between the margin and the padding.</li>
+            <li>Margin: Increases the space between the borders of a box 
+                and the borders of adjacent boxes.
+            </li>
+        </ul>
+
+        <p>Represented liked this:</p>
+
+        <img src="https://cdn.statically.io/gh/TheOdinProject/curriculum/main/foundations/html_css/css-foundations/the-box-model/imgs/box-model.png" id="modelimg">
+
+
+
+    </div>
+
+    <div class="Flex">
+
+        <p><u><em>Flex Containers vs Flex Items</em></u></p>
+        <img src="https://cdn.statically.io/gh/TheOdinProject/curriculum/b2a53579fcbec1cfde47646cc5a2b109cd7772cc/foundations/html_css/flexbox/imgs/03.png" height="200px" width="700px">
+        <p>Essentially, display: flex is a very important tool</p>
+        <p>Heres an example with display: flex: </p>
+
+        <nav class="flexboxtest">
+            <div>Home</div>
+            <div>About</div>
+            <div>Contact</div>
+        </nav>
+
+        <p>Without:</p>
+
+        <nav class="boxbox">
+            <div>Home</div>
+            <div>About</div>
+            <div>Contact</div>
+
+        </nav>
+
+
+        <p>For flex:1, this is assigning that grow, shrink, basic is = 1,1,0.
+            When we do assign flex: 1, this essentially flexes the items within
+            the container so that they grow to fill the available space. 
+        </p>
+
+        <p>Generally these values remain untouched, but if you need to go into it
+            investigate it. 
+        </p>
+
+        <p><strong>However</strong> we can use something like: <em>justify-content: space-between</em>
+        which would add equal space between each object. </p>
+        <img src="https://cdn.statically.io/gh/TheOdinProject/curriculum/495704c6eb6bf33bc927534f231533a82b27b2ac/html_css/v2/foundations/flexbox/imgs/07.png">
+
+        <p>Otherwise, we can align the items to be in the center using <em>align-items: center</em></p>
+
+        <p><u>Flex Direction:</u></p>
+        <p>Default direction for a flex direction is row, however, we can set
+            to vertical (column). This would be set as flex-direction: column;
+        </p>
+
+
+
+    </div>
+
+
+    
+    
+</body>

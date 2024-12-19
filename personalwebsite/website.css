@@ -1,78 +1,89 @@
 body { 
-    background-color: white;
+    background-color: rgb(0, 0, 0);
+
 }
 
-#aboutmesection { 
-    color: rgb(0, 0, 0);
-    background-color: rgb(238, 237, 179);
+div.topsection {
+    border: 2px solid black; 
+    height: 35px;
+    display: flex;
+    
+}
+
+nav.navigationalbar { 
+    color: white; 
     font-size: 20px;
-    padding: 10px;
-    border: 2px solid; 
-    border-radius: 20px;
-    display: flex; 
-    flex: 1;            
-    justify-content: space-between;
-    margin: 20px;
+    border: 2px solid black; 
+    display: flex;
+    margin-left: 90%;
+
 }
 
-div.middlearea { 
+
+div.middlesection { 
+    border: 2px solid rgb(0, 0, 0); 
+    margin-top: 20px;
+    height: 400px;
     display: flex;
     justify-content: space-between;
 
 }
 
-div.leftside { 
-    border: 2px solid rgb(0, 0, 0);
+#welcometext {
+    color: rgb(255, 255, 255); 
+    font-size: 100px;
+}
+
+#leftsidems { 
+    border: 2px solid rgb(0, 0, 0); 
     margin: 20px;
-    width: 40%;
-    border-radius: 40px;
+    height: 360px;
+    width: 50%
 }
 
-#lfmiddlesection {
-    padding-left: 50px;
+#rightsidems { 
+    border: 2px solid rgb(0, 0, 0); 
+    margin: 20px;
+    height: 360px;
+    width: 50%
+}
+
+#image { 
+    border: 2px solid black; 
+    border-radius: 50%; 
+    object-fit: contain;
 }
 
 
-#nametitle { 
-    color: rgb(0, 0, 0); 
-    font-size: 30px;
-
+div.bottomsection { 
+    border: 2px solid rgb(0, 0, 0); 
+    margin-top: 20px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
 
 }
 
-p.aboutmetext { 
-    color: rgb(0, 0, 0); 
-    font-size: 20px;
-    display: inline-block;
+#leftsidebs { 
+    border: 2px solid rgb(0, 0, 0); 
+    margin: 20px;
+    height: 360px;
+    width: 50%;
 }
 
-#amt2 {
-    color: rgb(0, 0, 0); 
-    font-size: 20px;
-    display: inline-block;
- }
-
-
-p.aboutmetext, #amt2 { 
+#biosection { 
+    color: rgb(255, 255, 255); 
     text-align: center;
+    border: 2px solid white;
+    border-radius: 60px;
+    width: 75%;  
+    margin-top: 20px; 
+    font-size: 20px; 
 }
 
-#secondlining {
-    color: rgb(0, 0, 0); 
-    font-size: 20px;
-    display: inline-block;
-}
-/* Right side of middle area */
-div.rightside { 
-    border: 2px solid rgb(0, 0, 0);
+#rightsidebs { 
+    border: 2px solid rgb(0, 0, 0); 
     margin: 20px;
-    width: 40%;
-    border-radius: 40px;
+    height: 360px;
+    width: 50%;
 }
-
-#techstack { 
-    padding: 20px;
-}
-
-
-
